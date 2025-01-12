@@ -1,0 +1,475 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Chat app</title>
+  </head>
+  <body>
+    <h1 class="title">iChat 💬</h1>
+    <div class="main">
+      <div class="name">
+        <span><i class="far fa-user"></i></span>
+        <input
+          type="text"
+          id="name-input"
+          class="name-input"
+          placeholder="send your name"
+          maxlength="20"
+        />
+      </div>
+
+      <ul class="message-container" id="message-container">
+
+      </ul>
+
+      <form class="message-form" id="message-form">
+        <input
+          type="text"
+          name="message"
+          id="message-input"
+          class="message-input"
+        />
+        <div class="v-divider"></div>
+        <button type="submit" class="send-button">
+          send <span><i class="fas fa-paper-plane"></i></span>
+        </button>
+      </form>
+    </div>
+    <h3 class="clients-total" id="client-total">Total clients: 2</h3>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
+      integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html> -->
+
+<!-- ///////////////////////////////////////// -->
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <title>Chat app</title>
+  <style>
+    #video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 300px);
+      grid-auto-rows: 300px;
+    }
+    
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">iChat 💬</h1>
+  <div class="main">
+    <div class="name">
+      <span><i class="far fa-user"></i></span>
+      <input
+        type="text"
+        id="name-input"
+        class="name-input"
+        placeholder="send your name"
+        maxlength="20"
+      />
+    </div>
+
+    <ul class="message-container" id="message-container"></ul>
+
+    <form class="message-form" id="message-form">
+      <input
+        type="text"
+        name="message"
+        id="message-input"
+        class="message-input"
+      />
+      <div class="v-divider"></div>
+      <button type="submit" class="send-button">
+        send <span><i class="fas fa-paper-plane"></i></span>
+      </button>
+    </form>
+  </div>
+  <h3 class="clients-total" id="client-total">Total clients: 2</h3>
+  <div id="video-grid"></div>
+
+  <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const ROOM_ID = "your_room_id_here"; // Provide a valid room ID here
+  </script>
+</body>
+</html> -->
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <title>Chat app</title>
+  <style>
+    #video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 300px);
+      grid-auto-rows: 300px;
+    }
+    
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">iChat 💬</h1>
+  <div class="main">
+    <div class="name">
+      <span><i class="far fa-user"></i></span>
+      <input
+        type="text"
+        id="name-input"
+        class="name-input"
+        placeholder="send your name"
+        maxlength="20"
+      />
+    </div>
+
+    <ul class="message-container" id="message-container"></ul>
+
+    <form class="message-form" id="message-form">
+      <input
+        type="text"
+        name="message"
+        id="message-input"
+        class="message-input"
+      />
+      <div class="v-divider"></div>
+      <button type="submit" class="send-button">
+        send <span><i class="fas fa-paper-plane"></i></span>
+      </button>
+    </form>
+
+     Button for video -->
+    <!-- <button id="video-button" class="video-button">
+      Start Video <span><i class="fas fa-video"></i></span>
+    </button>
+  </div>
+  <h3 class="clients-total" id="client-total">Total clients: 2</h3>
+  <div id="video-grid"></div>
+
+  <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const ROOM_ID = "your_room_id_here"; // Provide a valid room ID here
+  </script>
+</body>
+</html> --> 
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <title>Chat app</title>
+  <style>
+    #video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 300px);
+      grid-auto-rows: 300px;
+    }
+    
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">iChat 💬</h1>
+  <div class="main">
+    <div class="name">
+      <span><i class="far fa-user"></i></span>
+      <input
+        type="text"
+        id="name-input"
+        class="name-input"
+        placeholder="send your name"
+        maxlength="20"
+      />
+    </div>
+
+    <ul class="message-container" id="message-container"></ul>
+
+    <form class="message-form" id="message-form">
+      <input
+        type="text"
+        name="message"
+        id="message-input"
+        class="message-input"
+      />
+      <div class="v-divider"></div>
+      <button type="submit" class="send-button">
+        send <span><i class="fas fa-paper-plane"></i></span>
+      </button>
+    </form>
+
+ Button for video -
+    <button id="video-button" class="video-button">
+      Start Video <span><i class="fas fa-video"></i></span>
+    </button>
+  </div>
+  <h3 class="clients-total" id="client-total">Total clients: 2</h3>
+  <div id="video-grid"></div>
+
+  <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const ROOM_ID = "your_room_id_here"; // Provide a valid room ID here
+
+    // Function to start video
+    function startVideo() {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          const video = document.createElement('video');
+          video.srcObject = stream;
+          video.play();
+          document.getElementById('video-grid').appendChild(video);
+        })
+        .catch(error => {
+          console.error('Error accessing camera:', error);
+        });
+    }
+
+    // Event listener for the video button
+    document.getElementById('video-button').addEventListener('click', startVideo);
+  </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <title>Chat app</title>
+</head>
+<body>
+  <h1 class="title">iChat 💬</h1>
+  <div class="main">
+    <div class="name">
+      <span><i class="far fa-user"></i></span>
+      <input
+        type="text"
+        id="name-input"
+        class="name-input"
+        placeholder="send your name"
+        maxlength="20"
+      />
+    </div>
+
+    <ul class="message-container" id="message-container">
+
+    </ul>
+
+    <form class="message-form" id="message-form">
+      <input
+        type="text"
+        name="message"
+        id="message-input"
+        class="message-input"
+      />
+      <div class="v-divider"></div>
+      <button type="submit" class="send-button">
+        send <span><i class="fas fa-paper-plane"></i></span>
+      </button>
+
+      <!-- Video Call Button 
+      <button id="start-video-call-button" class="video-call-button">
+        Video Call <span><i class="fas fa-video"></i></span>
+      </button>
+    </form>
+  </div>
+  <h3 class="clients-total" id="client-total">Total clients: 2</h3>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
+    integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
+    crossorigin="anonymous"
+  ></script>
+  <script src="main.js"></script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <title>Chat app</title>
+  <style>
+    #video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 300px);
+      grid-auto-rows: 300px;
+    }
+    
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">iChat 💬</h1>
+  <div class="main">
+    <div class="name">
+      <span><i class="far fa-user"></i></span>
+      <input
+        type="text"
+        id="name-input"
+        class="name-input"
+        placeholder="send your name"
+        maxlength="20"
+      />
+    </div>
+
+    <ul class="message-container" id="message-container"></ul>
+
+    <form class="message-form" id="message-form">
+      <input
+        type="text"
+        name="message"
+        id="message-input"
+        class="message-input"
+      />
+      <div class="v-divider"></div>
+      <button type="submit" class="send-button">
+        send <span><i class="fas fa-paper-plane"></i></span>
+      </button>
+    </form>
+
+    <!-- Button for video -->
+    <button id="video-button" class="video-button">
+      Start Video <span><i class="fas fa-video"></i></span>
+    </button>
+  </div>
+  <h3 class="clients-total" id="client-total">Total clients: 2</h3>
+  <div id="video-grid"></div>
+
+  <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // Function to start video
+    function startVideo() {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          const video = document.createElement('video');
+          video.srcObject = stream;
+          video.play();
+          document.getElementById('video-grid').appendChild(video);
+        })
+        .catch(error => {
+          console.error('Error accessing camera:', error);
+        });
+    }
+
+    // Event listener for the video button
+    document.getElementById('video-button').addEventListener('click', startVideo);
+  </script>
+</body>
+</html>
